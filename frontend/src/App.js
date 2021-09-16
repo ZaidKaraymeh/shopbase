@@ -8,15 +8,39 @@ import { Row, Col, Container } from 'react-bootstrap'
 function App() {
   return (
     <Router>
-      <Container fluid className="text-center text-white">
+      <Container fluid className="text-center text-white bg-dark">
         <Row>
-          <Col xxl={3} xl={2} lg={3} md={3} sm={3} xs={3}>
+          <Col
+            className="mh-100"
+            xxl={3}
+            xl={2}
+            lg={3}
+            md={3}
+            sm={3}
+            xs={3}
+          >
             <Route path="/" component={LeftScreen} />
           </Col>
-          <Col xxl={6} xl={8} lg={6} md={6} sm={6} xs={6}>
+          <Col
+            className="middle-screen mh-100"
+            xxl={6}
+            xl={8}
+            lg={6}
+            md={6}
+            sm={6}
+            xs={6}
+          >
             <Route path="/" component={HomeScreen} />
           </Col>
-          <Col xxl={3} xl={2} lg={3} md={3} sm={3} xs={3}>
+          <Col
+            className="mh-100"
+            xxl={3}
+            xl={2}
+            lg={3}
+            md={3}
+            sm={3}
+            xs={3}
+          >
             <Route path="/" component={RightScreen} />
           </Col>
         </Row>

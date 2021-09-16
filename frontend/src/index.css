@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.middle-screen {
+  background-color: #002b36 ;
+}
+
+.mh-100 {
+  min-height: 100vh !important;
+}
