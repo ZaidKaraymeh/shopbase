@@ -13,12 +13,13 @@ function HomeScreen() {
         }
         fetchPosts()
     }, [])
+    console.log("post", posts);
+
 
     console.log("data: ", posts)
     return (
-        <Container fluid>
-            <h1>mid</h1>
-             {posts.map(post => {
+        <Container fluid className="p-0">
+             {posts.data?.map(post => {
                 return (
                     <Post key={post.id} post={post} />
                 )

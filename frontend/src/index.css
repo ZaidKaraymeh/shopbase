@@ -13,6 +13,30 @@ code {
     monospace;
 }
 
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* SCROLLBAR */
+
 .middle-screen {
   background-color: #002b36 ;
 }
@@ -20,3 +44,14 @@ code {
 .mh-100 {
   min-height: 100vh !important;
 }
+
+.nav-link-cus:hover {
+  background: #002b36;
+  width: auto;
+}
+.nav-link-cus a {
+  display: block;
+}
+
+
+

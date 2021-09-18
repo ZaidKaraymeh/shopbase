@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from django.contrib.auth.models import User
-from .models import Post, Comment
+from .models import Post, Comment, Reply
 
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
@@ -38,15 +38,36 @@ class UserSerializerWithToken(UserSerializer):
         return str(token.access_token)
 
 
+class ReplySerializer(serializers.ModelSerializer):
+    user = serializers.SerializerMethodField(read_only=True)
 
+    class Meta:
+        model = Reply
+        fields = '__all__'
 
+    def get_user(self, obj):
+        user = obj.user
+        serializer = UserSerializer(user, many=False)
+        return serializer.data
 
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    replies = serializers.SerializerMethodField(read_only=True)
+    user = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Comment
         fields = '__all__'
+
+    def get_replies(self, obj):
+        items = obj.reply_set.all()
+        serializer = ReplySerializer(items, many=True)
+        return serializer.data
+
+    def get_user(self, obj):
+        user = obj.user
+        serializer = UserSerializer(user, many=False)
+        return serializer.data
 
 
 class PostSerializer(serializers.ModelSerializer):
